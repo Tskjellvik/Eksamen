@@ -1,0 +1,25 @@
+<%- include('./partials/header.ejs')  %>
+
+<% for(post of posts){ %>
+    <div class="contentList">
+        
+        <div class="titledelete">
+            <h1 class="quotes"><%= post.title%> </h1>            
+        </div>
+        <div class="textusername">
+            <h2 class="quotes"><%= post.text %> - <span><%= post.username %></span></h2> 
+            <p class="postusername"></p>
+        </div>
+    </div>
+<% } %>
+
+<% if(posts.length >= count){ %>
+    <h2>No more posts available</h2>
+<% } else{ %>
+    <form method="POST">
+        <input type="hidden" name="id" value= 5></input>
+        <button>...</button>
+    </form>
+<% } %>
+
+<%- include('./partials/footer.ejs')  %>

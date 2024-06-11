@@ -1,0 +1,27 @@
+<%- include('./partials/header') %>
+
+
+<% if(!userprofile){ %>
+    <h1 class="noexist"> This user does not exist</h1>
+<% } else {%>
+    <% for(post of posts){ %>
+        <div class="contentList">
+            <div class="titledelete">
+                <h1 class="quotes"><%= post.title%> </h1>            
+             
+            </div>
+            <div class="textusername">
+                <h2 class="quotes"><%= post.text %> - <span><%= post.username %></span></h2> 
+                <p class="postusername"></p>
+            </div>
+        </div>
+    <% } %>
+<% } %>
+    
+<%- include('./partials/footer') %>
+<style>
+    .noexist{
+        text-align: center;
+        padding-top: 100px;
+    }
+</style>

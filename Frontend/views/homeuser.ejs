@@ -1,0 +1,47 @@
+<%- include('./partials/header') %>
+
+
+<% if(!userprofile){ %>
+    <h1 class="noexist"> This user does not exist</h1>
+<% } else if(isUser){%>
+    <div class="form-container">
+        <h1 class="h1submit">Submit post</h1>
+        <form class="publishform" action="/add" method="post">
+    
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" for="value"required>
+            <label for="text">Text (max 100 tegn):</label>
+            <textarea name="text" id="text" for="value" rows="4" maxlength="100" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+            <h1>Post's</h1> 
+    </div>
+
+    <% for(post of posts){ %>
+        <div class="contentList">
+            <div class="titledelete">
+                <h1 class="quotes"><%= post.title%> </h1>            
+                <form method="POST">
+                    <input type="hidden" name="id" value='<%= post._id %>'></input>
+                    <button class="deletebutton">Delete</button>
+                </form>
+            </div>
+            <div class="textusername">
+                <h2 class="quotes"><%= post.text %> - <span><%= post.username %></span></h2> 
+                <p class="postusername"></p>
+            </div>
+        </div>
+    <% } %>
+<% } else{%>
+    <h1 class="noexist"> You are not authorized</h1>
+<% } %> 
+<%- include('./partials/footer') %>
+<style>
+    .noexist{
+        text-align: center;
+        padding-top: 100px;
+    }
+    .deletebutton{
+        background-color: red;
+    }
+</style>
