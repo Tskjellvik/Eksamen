@@ -33,7 +33,7 @@ const handleErrors = (err) => {
 
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
-    return jwt.sign({ id }, 'henrik secret', {
+    return jwt.sign({ id }, 'theodor secret', {
         expiresIn: maxAge
     })
 }

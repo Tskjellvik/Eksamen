@@ -1,3 +1,4 @@
+const { default: mongoose } = require('mongoose')
 const visualScreen = require('../models/visualModel')
 
 const getContent = async (req, res) =>{
@@ -63,29 +64,35 @@ const delate = async (id) =>{
     }
 }
 
-// // Get one quote
-//const getPostsRnd = async (req, res) => {
-//     try{
-//         const quotes = await posts.find()
-//         const randomIndex = Math.random()*quotes.length
-//         const quote = quotes[Math.floor(randomIndex)]
-       
-//         if(!quotes) {
-//             throw Error("No quotes found")
-//         }
-//         res.status(200).json(quote);
-//     }catch(error){
-//         res.status(400).json({ error: error.message});
-//     }
-// }
+//update a post
+const updatePost = async (req, res) => {
+    const id = req.params.id;
+    const text = req.body.text;
+    console.log('Running updatPost function!!!', id, text);
+    try {
+        const post = await visualScreen.findOneAndUpdate({ _id: id }, { text: text }, { new: true });
+        if (!post) {
+            console.log('No such posts');
+            // return { error: 'No such posts' };
+        }
+    } catch (error) {
+        console.error(error);
+        // return { error: 'Error updating post' };
+    }
+    let {username} = res.locals.user;
+    console.log(username);
+    res.redirect(`/home/${username}`)
+ };
 
 
-module.exports = {
+
+
+ module.exports = {
     downs,
     getContent,
     delate,
     getPosts,
-    //getPostsRnd,
     getUsersPosts,
-}
+    updatePost
+ };
 

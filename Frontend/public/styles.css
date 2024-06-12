@@ -1,131 +1,137 @@
 * {
   box-sizing: border-box;
   padding: 0;
-  margin: auto;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
 }
-label{
+body {
+  background-color: #f0f4f8; /* Lys blå bakgrunn */
+  color: #333; /* Mørk grå tekst for bedre lesbarhet */
+}
+label, .signuplink {
   display: block;
-}
-
-p{
-  font-size: 20px;
-}
-
-h2, label{
   text-align: center;
   padding-top: 20px;
+  color: #333; /* Mørk grå tekst */
 }
-
-nav{
+p, a {
+  font-size: 20px;
+  color: #333; /* Mørk grå tekst */
+}
+nav {
   color: white;
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   align-items: center;
   padding: 15px 0;
-  background-color: #24252A;
+  background-color: #1e3a8a; /* Mørk blå */
 }
-
-span{
+span {
   font-style: italic;
+  color: #1e3a8a; /* Mørk blå */
 }
-
-.contentlist{
+.contentlist, .error, .form-container {
   margin: 20px auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   max-width: 50%;
-  border: 1px solid black;
 }
-
-.textusername{
+.contentlist {
+  border: 1px solid #1e3a8a; /* Mørk blå */
+  background-color: #e0f2f1; /* Lys grønn bakgrunn */
+  border-radius: 10px;
+  padding: 20px;
+}
+.textusername, .titledelete {
   display: flex;
   justify-content: space-between;
   width: 100%;
   flex-wrap: wrap;
 }
-
-.contentlist h2{
+.contentlist h2 {
   text-align: left;
+  color: #1e3a8a; /* Mørk blå */
 }
-.titledelete{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.bitt{
+.bitt {
   padding: 0 30%;
   font-size: 30px;
+  color: #fff; /* hvit */
 }
-
-a{
-  font-size: 20px;
-  color: white;
+a {
+  color: #fff; /* Mørk blå */
   text-decoration: none;
 }
-.signuplink{
-  color: black;
-  display: block;
+.signuplink {
+  color: #333; /* Mørk grå */
   font-size: 15px;
   margin-bottom: 10px;
-  text-align: center;
 }
-
-.error{
-  background-color: lightcoral;
-  color: black;
-  text-align: center;
+.error {
+  background-color: #ffcccb; /* Lys rød bakgrunn */
+  color: #333; /* Mørk grå tekst */
   max-width: 20%;
-  
+  border-radius: 10px;
+  padding: 10px;
 }
-
-.form-container{
-  margin: auto;
+.form-container {
   justify-content: center;
   align-items: center;
   display: grid;
-  max-width: 50%;
   padding-top: 6%;
+  background-color: #fff; /* Hvit bakgrunn */
+  border-radius: 10px;
+  padding: 20px;
 }
-
-.dontusr{
-  background-color: white;
-  color: black;
-  border: white;
+.dontusr {
+  background-color: #e0f2f1; /* Lys grønn */
+  color: #333; /* Mørk grå */
+  border: 1px solid #1e3a8a; /* Mørk blå */
+  border-radius: 5px;
   cursor: pointer;
 }
-
-
-input {
+input, button {
   margin-bottom: 15px;
   padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+}
+input {
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  display: block;
 }
-
 button {
-  padding: 10px;
-  background-color: #24252A;
-  color: #fff;
+  background-color: #1e3a8a; /* Mørk blå */
+  color: #fff; /* Hvit */
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
   cursor: pointer;
-  display: block;
+  transition: background-color 0.3s;
 }
-
-
-
-
-.ned{
+button:hover {
+  background-color: #165cb1; /* Lysere blå ved hover */
+}
+.ned {
   padding-top: 30px;
+  max-width: 50%;
 }
-
-.quotes{
+.quotes {
   padding: 20px;
   display: inline;
+  background-color: #e0f2f1; /* Lys grønn */
+  border-radius: 10px;
 }
 
+h2 {
+  text-align: center;
+  max-width: 80%;
+}
+
+.guide {
+  font-size: 25px;
+  color: #fff; /* hvit */
+}
+
+.editbutton {
+  
+}

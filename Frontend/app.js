@@ -6,9 +6,9 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser')
 const { requireAuth, checkUser } = require("./middelware/authMiddelware");
-const {delate, getPosts} = require('./controllers/contentContoller')
+const {delate, getPosts, updatePost} = require('./controllers/contentContoller')
 const visualScreen = require('./models/visualModel')
-const dbURL = "mongodb://10.12.10.160:27017/?directConnection=true&appName=mongosh+2.1.5"
+const dbURL = "mongodb://10.12.10.160:27017/Eksamen?directConnection=true&appName=mongosh+2.1.5"
 
 const app = express();
 
@@ -37,6 +37,17 @@ app.post('/home/:username', checkUser, async(req, res)=>{
     }
 
 })
+
+app.post('/home/:username', checkUser, async (req, res) => {
+    let newtext = req.body.text;
+    console.log('newtext', req.body.text);
+    let username = req.user.username;
+    const updated = await updatePost(req.body.id, newtext); // Pass id and newtext to the updatePost function
+    if(updated.acknowledged){
+        res.status(200).redirect(`/home/${username}`);
+    }
+ });
+ 
 
 
 

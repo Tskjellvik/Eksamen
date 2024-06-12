@@ -20,9 +20,17 @@
     <% for(post of posts){ %>
         <div class="contentList">
             <div class="titledelete">
-                <h1 class="quotes"><%= post.title%> </h1>            
+                <h1 class="quotes"><%= post.title%> </h1>
+
+                <!-- Current under working, uncaught and funktin not running -->
+                <form method="POST" action=<%=`/${post._id}`%> >
+                    <input type="hiddem" name="text" value="<%= post.newtext %>"></input>
+                    <button type="submit" class="editbutton">Edit</button>
+                </form>
+
+
                 <form method="POST">
-                    <input type="hidden" name="id" value='<%= post._id %>'></input>
+                    <input type="hidden" name="id" value="<%= post._id %>"></input>
                     <button class="deletebutton">Delete</button>
                 </form>
             </div>
